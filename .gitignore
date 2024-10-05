@@ -1,4 +1,3 @@
-/include
-/Lib
-/Scripts
+/venv
 pyvenv.cfg
+.gitignore
