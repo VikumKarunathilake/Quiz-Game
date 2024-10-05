@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Added lang attribute -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Added charset meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added viewport meta tag -->
+    <title>Create Quiz Question</title>
+</head>
+
+<body>
+    <h1>Create a New Quiz Question</h1>
+    <form method="POST" action="{{ url_for('save_quiz') }}">
+        <label for="category">Category:</label><input type="text" name="category" id="category"><br><br>
+        <!-- Added labels and IDs -->
+        <label for="questionText">Question:</label><input type="text" name="questionText" id="questionText"><br><br>
+        <label for="answerA">Answer A:</label><input type="text" name="answerA" id="answerA"><br><br>
+        <label for="answerB">Answer B:</label><input type="text" name="answerB" id="answerB"><br><br>
+        <label for="answerC">Answer C:</label><input type="text" name="answerC" id="answerC"><br><br>
+        <label for="answerD">Answer D:</label><input type="text" name="answerD" id="answerD"><br><br>
+        <label for="correctAnswer">Correct Answer (A, B, C, or D):</label><input type="text" name="correctAnswer"
+            id="correctAnswer"><br><br>
+        <button type="submit">Save Question</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+
+</html>
