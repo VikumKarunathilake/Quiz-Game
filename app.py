@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import random
 
@@ -39,6 +39,11 @@ def submit_quiz():
 def create_quiz():
     return render_template('createQuiz.html')
 
+@app.route('/set_username', methods=['POST'])
+def set_username():
+    if request.method == 'POST':
+        session['username'] = request.form['username'] #Store username in the session
+    return redirect(url_for('create_quiz'))
 
 @app.route('/save_quiz', methods=['POST'])
 def save_quiz():
@@ -50,6 +55,8 @@ def save_quiz():
         answer_c = request.form['answerC']
         answer_d = request.form['answerD']
         correct_answer = request.form['correctAnswer']
+
+        username = session['username']
 
         conn = get_db_connection()
         conn.execute('INSERT INTO QuizQuestions (Category, QuestionText, AnswerA, AnswerB, AnswerC, AnswerD, CorrectAnswer) VALUES (?, ?, ?, ?, ?, ?, ?)',
