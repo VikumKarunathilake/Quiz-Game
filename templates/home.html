@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Quiz App{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 mb-4">Welcome to Quiz App</h1>
+    <p class="lead mb-4">Create and take quizzes to test your knowledge!</p>
+
+    {% if not current_user.is_authenticated %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="d-grid gap-2">
+                <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg mb-2">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg">Register</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="d-grid">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg">Go to Dashboard</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
