@@ -1,6 +1,5 @@
 *.pyc
 __pycache__/
-instance/
 .env
 quiz_app.db
 venv/
