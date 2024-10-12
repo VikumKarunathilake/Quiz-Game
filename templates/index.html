@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Quiz Game!</h1>
+    <p class="lead">Test your knowledge and have fun!</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('quiz') }}" role="button">Start Quiz</a>
+</div>
+{% endblock %}
